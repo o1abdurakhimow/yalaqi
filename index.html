@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MOVIES!</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+  </head>
+  <body>
+    <header class="hero">
+      <h1>MOVIES!</h1>
+      <p>100 films &nbsp;·&nbsp; discover your next watch</p>
+    </header>
+
+    <div class="controls">
+      <div class="search-wrap">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search movies…"
+          oninput="filterMovies()"
+        />
+      </div>
+
+      <div class="filter-chips">
+        <button class="chip active" data-cat="all" onclick="setCategory(this)">
+          All
+        </button>
+        <button class="chip" data-cat="Action" onclick="setCategory(this)">
+          Action
+        </button>
+        <button class="chip" data-cat="Comedy" onclick="setCategory(this)">
+          Comedy
+        </button>
+        <button class="chip" data-cat="Drama" onclick="setCategory(this)">
+          Drama
+        </button>
+      </div>
+
+      <select class="sort-select" id="sort" onchange="filterMovies()">
+        <option value="default">Default Order</option>
+        <option value="rating">Top Rated</option>
+        <option value="year_desc">Newest First</option>
+        <option value="year_asc">Oldest First</option>
+        <option value="letter">A-Z</option>
+      </select>
+    </div>
+
+    <!-- swiper -->
+
+    <div class="swiper">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide"><img src="" alt="" /></div>
+        <div class="swiper-slide">
+         
+        </div>
+        <div class="swiper-slide">
+      
+        </div>
+        ...
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+
+      <!-- If we need scrollbar -->
+      <div class="swiper-scrollbar"></div>
+    </div>
+
+    <style>
+      .swiper {
+        width: 18%;
+        height: 420px;
+        border-radius: 8px;
+      }
+
+      .swiper-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+
+    <div class="stats-bar">
+      <span id="countLabel">Showing <strong>100</strong> movies</span>
+      <span id="avgRating"></span>
+    </div>
+
+    <main class="movie-grid" id="movieGrid"></main>
+
+    <button
+      class="scroll-top"
+      id="scrollBtn"
+      onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    >
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+      >
+        <polyline points="18 15 12 9 6 15" />
+      </svg>
+    </button>
+
+    <script type="module" src="/script.js"></script>
+  </body>
+</html>
